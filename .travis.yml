@@ -17,4 +17,4 @@ script:
 
 # configure notifications (email, IRC, campfire etc)
 notifications:
-  #email: "olivier.choquet@vinci.be"
+  email: "olivier.choquet@vinci.be"
