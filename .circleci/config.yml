@@ -1,4 +1,6 @@
 version: 2.1
+orbs:
+  heroku: circleci/heroku@1.2.6
 jobs:
   build:
     docker:
@@ -34,4 +36,11 @@ jobs:
       # run tests with phpunit
       - run:
           name: "Run Unit Tests"
-          command: ./vendor/bin/phpunit test.php    
+          command: ./vendor/bin/phpunit test.php
+workflows:
+  test:
+    jobs:
+      - build
+  heroku_deploy:
+    jobs:
+      - heroku/deploy-via-git
