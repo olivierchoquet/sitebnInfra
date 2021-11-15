@@ -1,9 +1,11 @@
 orbs:
   heroku: circleci/heroku@1.2.6
+version: 2.1
 workflows:
-    example-workflow:
-      jobs:
-        - heroku/deploy-via-git:
-            api-key: '2fea22c5-ac2a-4be4-a450-a758d05071d0' 
-            app-name: test 
-            branch: circleci-project-setup 
+  heroku_deploy:
+    jobs:
+      - heroku/deploy-via-git:
+          post-steps:
+            - run: your-database-migration-command
+          pre-steps:
+            - run: command-that-run-before-deploying
