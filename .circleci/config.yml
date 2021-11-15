@@ -38,11 +38,7 @@ jobs:
           name: "Run Unit Tests"
           command: ./vendor/bin/phpunit test.php
 workflows:
-  test:
+  all:
     jobs:
       - build
-  heroku_deploy:
-    jobs:
       - heroku/deploy-via-git
-      - requires:
-          - build
