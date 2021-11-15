@@ -2,7 +2,7 @@ version: 2.1
 orbs:
   heroku: circleci/heroku@1.2.6
 jobs:
-  build:
+  tests:
     docker:
       # Specify the version you desire here
       - image: circleci/php:7.4-node-browsers
@@ -40,5 +40,8 @@ jobs:
 workflows:
   all:
     jobs:
-      - build
-      - heroku/deploy-via-git
+      - tests
+      - heroku/deploy-via-git:
+          - requires:
+              - tests
+
