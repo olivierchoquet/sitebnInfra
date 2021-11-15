@@ -5,7 +5,7 @@ orbs:
 workflows:
   foo:
     jobs:
-      - phpunit/test test.php
+      - test.php
   heroku_deploy:
     jobs:
       - heroku/deploy-via-git
