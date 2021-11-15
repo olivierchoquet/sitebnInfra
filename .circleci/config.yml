@@ -51,7 +51,5 @@ workflows:
   all:
     jobs:
       - tests
-      - deploy:
-          - requires:
-              - tests
+      - deploy
 
