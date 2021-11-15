@@ -3,9 +3,9 @@ orbs:
   heroku: circleci/heroku@1.2.6
   phpunit: stockfiller/phpunit@1.1.0
 workflows:
-  foo:
-    jobs:
-      - phpunit test.php
+  run:
+    name: "Run Unit Tests"
+    command: ./vendor/bin/phpunit test.php
   heroku_deploy:
     jobs:
       - heroku/deploy-via-git
