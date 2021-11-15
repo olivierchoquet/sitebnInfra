@@ -1,7 +1,12 @@
 version: 2.1
 orbs:
   heroku: circleci/heroku@1.2.6
+  phpunit: stockfiller/phpunit@1.0.0
 workflows:
+  foo:
+    jobs:
+      - phpunit/test
   heroku_deploy:
     jobs:
       - heroku/deploy-via-git
+    
