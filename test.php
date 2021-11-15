@@ -7,7 +7,7 @@ class Test extends TestCase
     
     public function testInstanceCalculator()
     {
-        $this->assertEquals("YES","YES");
+        $this->assertEquals("YES","ES");
     }
 
    
