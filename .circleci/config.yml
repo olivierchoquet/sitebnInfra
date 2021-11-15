@@ -1,29 +1,9 @@
-version: 2
-
- jobs:
-   build:
-     ...
-   deploy:
-     docker:
-       - image: <docker-image-name-tag>
-         auth:
-           username: mydockerhub-user
-           password: $DOCKERHUB_PASSWORD  # context / project UI env-var reference
-     steps:
-       - checkout
-       - run:
-           name: Deploy Main to Heroku
-           command: |
-             git push https://heroku:2fea22c5-ac2a-4be4-a450-a758d05071d0@git.heroku.com/test.git main
-
- workflows:
-   version: 2
-   build-deploy:
-     jobs:
-       - build
-       - deploy:
-           requires:
-             - build # only run deploy-via-git job if the build job has completed
-           filters:
-             branches:
-               only: main # only run deploy-via-git job on main branch
+orbs:
+  heroku: circleci/heroku@1.2.6
+workflows:
+    example-workflow:
+      jobs:
+        - heroku/deploy-via-git:
+            api-key: '2fea22c5-ac2a-4be4-a450-a758d05071d0' 
+            app-name: test 
+            branch: circleci-project-setup 
