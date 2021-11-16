@@ -3,4 +3,5 @@
 			<p>Bienvenue aux séances d'exercices consacrées à élaborer un site Internet en PHP selon une architecture didactique MVC OO.</p>
 			<p> Bonjour Heroku avec Travis hi hi didfi</p>
 			<p>Jean-Luc Collinet.</p>
+			<p> circleci </p>
 		</section>
