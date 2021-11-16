@@ -37,19 +37,15 @@ jobs:
       - run:
           name: "Run Unit Tests"
           command: ./vendor/bin/phpunit test.php
-  deploy:
-    executor: heroku/default
-    steps:
-      - checkout
-      - heroku/install
-      - run:
-          command: >
-            echo "The command above installs Heroku, the command below deploys.
-            What you do inbetween is up to you!"
-      - heroku/deploy-via-git
+
 workflows:
   all:
     jobs:
-      - tests
-      - deploy
+    - tests
+    - heroku/deploy-via-git: # Use the pre-configured job, deploy-via-git
+          requires:
+            - tests
+          #filters:
+          #  branches:
+          #    only: sequential-branch-filter
 
